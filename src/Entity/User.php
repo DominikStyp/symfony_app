@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Psy\CodeCleaner\NamespacePass;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
