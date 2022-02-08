@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Forms\CustomFormBuilder;
+use App\Services\TestService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -32,10 +33,19 @@ class TestController extends AbstractController
             }
         }
 
-        exit;
-
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',
         ]);
     }
+
+    /**
+     * @Route("/serviceTest", name="serviceTest")
+     */
+    public function serviceTest(TestService $service): Response
+    {
+        return $this->render('test/index.html.twig', [
+            'controller_name' => 'TestController',
+        ]);
+    }
+
 }
