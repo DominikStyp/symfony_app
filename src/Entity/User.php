@@ -118,6 +118,16 @@ class User implements UserInterface, \Serializable
         return $this->password;
     }
 
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function getIsActive(): bool
+    {
+        return $this->isActive;
+    }
+
     public function getRoles(): array
     {
         return array('ROLE_USER');
@@ -134,6 +144,7 @@ class User implements UserInterface, \Serializable
             $this->id,
             $this->username,
             $this->password,
+            $this->email,
             // see section on salt below
             // $this->salt,
         ));
@@ -146,6 +157,7 @@ class User implements UserInterface, \Serializable
             $this->id,
             $this->username,
             $this->password,
+            $this->email,
             // see section on salt below
             // $this->salt
             ) = unserialize($serialized, array('allowed_classes' => false));
